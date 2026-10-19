@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Johan Nantin</title>
+<meta name="description" content="Johan Nantin – entreprenör, livsnjutare och nyfiken upptäckare.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛵</text></svg>">
+<style>
+:root {
+  --bg: #eef2f1;
+  --surface: #ffffff;
+  --ink: #12303b;
+  --muted: #4d6670;
+  --line: #c9d6d6;
+  --accent: #0f5f73;
+  --signal: #e3b02b;
+  --on-accent: #ffffff;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1f26;
+    --surface: #152c35;
+    --ink: #e8f0ef;
+    --muted: #9fb5bb;
+    --line: #2b4651;
+    --accent: #6cc3d5;
+    --signal: #e3b02b;
+    --on-accent: #0e1f26;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 1.0625rem/1.65 var(--sans);
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 2px;
+}
+.wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Hero */
+header { padding: 5rem 0 3rem; border-bottom: 1px solid var(--line); }
+h1 {
+  font: 600 clamp(3rem, 12vw, 6rem)/0.95 var(--serif);
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+}
+.tagline {
+  font: italic 1.5rem/1.35 var(--serif);
+  color: var(--muted);
+  margin: 0;
+}
+.hero { display: flex; flex-direction: column-reverse; gap: 2rem; align-items: flex-start; }
+@media (min-width: 40rem) { .hero { flex-direction: row; align-items: center; justify-content: space-between; gap: 2.5rem; } }
+.portrait {
+  width: 11rem; height: 11rem; flex: none;
+  object-fit: cover; object-position: 50% 30%;
+  border-radius: 50%;
+  border: 4px solid var(--signal);
+}
+@media (min-width: 40rem) { .portrait { width: 13rem; height: 13rem; } }
+.wave { display: block; width: 7rem; height: 14px; margin-top: 2rem; color: var(--signal); }
+
+section { padding: 3rem 0; border-bottom: 1px solid var(--line); }
+h2 { font: 600 1.6rem/1.2 var(--serif); margin: 0 0 1.25rem; }
+p { margin: 0 0 1.1rem; max-width: 38rem; }
+
+blockquote {
+  margin: 2rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 4px solid var(--signal);
+  font: italic 1.35rem/1.45 var(--serif);
+  max-width: 36rem;
+}
+blockquote footer { all: unset; display: block; margin-top: 0.5rem; font: 0.95rem var(--sans); color: var(--muted); }
+
+.interests { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.interests li {
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+/* Contact */
+.contact-grid { display: grid; gap: 2.5rem; }
+@media (min-width: 40rem) { .contact-grid { grid-template-columns: 2fr 1fr; } }
+form { display: grid; gap: 1rem; }
+label { display: grid; gap: 0.35rem; font-weight: 600; font-size: 0.95rem; }
+input, textarea {
+  font: inherit;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  width: 100%;
+}
+textarea { min-height: 9rem; resize: vertical; }
+button {
+  font: 600 1rem var(--sans);
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 0;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  justify-self: start;
+}
+button:hover { filter: brightness(1.1); }
+button:disabled { opacity: 0.6; cursor: wait; }
+.hp { position: absolute; left: -9999px; }
+#status { margin: 0; min-height: 1.5em; font-weight: 600; }
+#status.ok { color: var(--accent); }
+#status.err { color: #c0392b; }
+address { font-style: normal; margin-bottom: 1.5rem; }
+.links { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+
+footer.site { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hero">
+    <div>
+      <h1>Johan Nantin</h1>
+      <p class="tagline">Entreprenör, livsnjutare och nyfiken upptäckare</p>
+      <svg class="wave" viewBox="0 0 112 14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+        <path d="M2 7 Q 15 -2 28 7 T 54 7 T 80 7 T 110 7"/>
+      </svg>
+    </div>
+    <img class="portrait" src="johan.jpg" width="600" height="600" alt="Porträtt av Johan Nantin">
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>Om mig</h2>
+      <p>Jag är en social och nyfiken person med entreprenöriell anda, en förkärlek för nya idéer och en ständig lust att upptäcka mer av vad livet har att erbjuda. Jag trivs bäst när jag får kombinera driv och kreativitet med härliga människor, nya perspektiv och upplevelser utöver det vanliga.</p>
+      <p>Segling, naturupplevelser, god mat och dryck, musik, kallbad och spontana äventyr ligger mig varmt om hjärtat. För mig handlar livet om nyfikenhet, gemenskap och att våga säga ja – både till möjligheter och till sådant som inte riktigt går att planera.</p>
+      <p>Jag tror på att bygga relationer, tänka stort, skratta ofta och samla på upplevelser snarare än saker.</p>
+
+      <blockquote>
+        “Always say yes to a quick 30min beer with a friend. It might be the best 1,5 hour of the next 6 hours of your life.”
+        <footer>Mitt motto</footer>
+      </blockquote>
+
+      <p>Kort sagt: nyfiken på livet, passionerad för upplevelser och alltid redo för nästa äventyr. Helst med trevligt sällskap, något gott i glaset och en bra historia att berätta efteråt.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Intressen</h2>
+      <ul class="interests">
+        <li>Segling</li>
+        <li>Musik</li>
+        <li>Ölbryggning</li>
+        <li>Natur</li>
+        <li>Kallbad</li>
+        <li>Matlagning</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="kontakt" style="border-bottom:0">
+    <div class="wrap">
+      <h2>Kontakt</h2>
+      <div class="contact-grid">
+
+        <form id="contact" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="b63a7a8c-933a-463b-b54b-9793e0595bcb">
+          <input type="hidden" name="subject" value="Nytt meddelande från nantin.se">
+          <input type="hidden" name="from_name" value="nantin.se">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label>Ditt namn
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>Din e-postadress
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>Meddelande
+            <textarea name="message" required></textarea>
+          </label>
+          <button type="submit">Skicka meddelande</button>
+          <p id="status" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside>
+          <address>
+            Johan Nantin<br>
+            Långgatan 8a<br>
+            247 52 Dalby
+          </address>
+          <ul class="links">
+            <li><a href="https://s.blinq.me/cmt851b3m007v0gs6gi6k1x2q?bs=icl" target="_blank" rel="noopener">Digitalt visitkort</a></li>
+            <li><a href="https://www.linkedin.com/in/johan-nantin-7876641b" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/johannantin" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1FEmd4UHx7/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">© <span id="year">2026</span> Johan Nantin</div>
+</footer>
+
+<script>
+(function () {
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var form = document.getElementById('contact');
+  var status = document.getElementById('status');
+  var btn = form.querySelector('button');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    btn.disabled = true;
+    status.className = '';
+    status.textContent = 'Skickar …';
+    try {
+      var res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      var data = await res.json();
+      if (res.ok && data.success) {
+        form.reset();
+        status.className = 'ok';
+        status.textContent = 'Tack! Ditt meddelande är skickat.';
+      } else {
+        throw new Error(data.message || 'Fel');
+      }
+    } catch (err) {
+      status.className = 'err';
+      status.textContent = 'Det gick inte att skicka. Försök igen om en stund.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
